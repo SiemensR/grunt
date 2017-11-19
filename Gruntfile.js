@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     watch:{
       options:{livereload:true},
       files:['./**'],
-      tasks:['sass']
+      tasks:['sass','cssmin']
     },
 
     sass: {
@@ -22,6 +22,19 @@ module.exports = function (grunt) {
         }
       }
     },
+
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: '',
+          src: ['*.css', '!*.min.css'],
+          dest: 'css',
+          ext: '.min.css'
+        }]
+      }
+    },
+
     express:{
       all:{
         options:{
@@ -39,6 +52,7 @@ module.exports = function (grunt) {
   // По сути, под одним названием мы запускаем другие в указанном порядке.
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-express');
-  grunt.registerTask('default',['express','sass','watch']);
+  grunt.registerTask('default',['express','sass','cssmin','watch']);
 };

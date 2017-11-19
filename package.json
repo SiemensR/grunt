@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-parallel": "^0.5.1",
